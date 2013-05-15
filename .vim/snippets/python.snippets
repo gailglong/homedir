@@ -1,0 +1,129 @@
+snippet #!
+	#!/usr/bin/python
+
+snippet imp
+	import ${1:module}
+# Module Docstring
+snippet docs
+	'''
+	File: ${1:`Filename('$1.py', 'foo.py')`}
+	Author: ${2:`g:snips_author`}
+	Description: ${3}
+	'''
+snippet wh
+	while ${1:condition}:
+		${2:# code...}
+snippet for
+	for ${1:needle} in ${2:haystack}:
+		${3:# code...}
+# New Class
+snippet cl
+	class ${1:ClassName}(${2:object}):
+		"""${3:docstring for $1}"""
+		def __init__(self, ${4:arg}):
+			${5:super($1, self).__init__()}
+			self.$4 = $4
+			${6}
+# New Function
+snippet def
+	def ${1:fname}(${2:`indent('.') ? 'self' : ''`}):
+		"""${3:docstring for $1}"""
+		${4:pass}
+snippet deff
+	def ${1:fname}(${2:`indent('.') ? 'self' : ''`}):
+		${3}
+# New Method
+snippet defs
+	def ${1:mname}(self, ${2:arg}):
+		${3:pass}
+# New Property
+snippet property
+	def ${1:foo}():
+		doc = "${2:The $1 property.}"
+		def fget(self):
+			${3:return self._$1}
+		def fset(self, value):
+			${4:self._$1 = value}
+# Lambda
+snippet ld
+	${1:var} = lambda ${2:vars} : ${3:action}
+snippet .
+	self.
+snippet try Try/Except
+	try:
+		${1:pass}
+	except ${2:Exception}, ${3:e}:
+		${4:raise $3}
+snippet try Try/Except/Else
+	try:
+		${1:pass}
+	except ${2:Exception}, ${3:e}:
+		${4:raise $3}
+	else:
+		${5:pass}
+snippet try Try/Except/Finally
+	try:
+		${1:pass}
+	except ${2:Exception}, ${3:e}:
+		${4:raise $3}
+	finally:
+		${5:pass}
+snippet try Try/Except/Else/Finally
+	try:
+		${1:pass}
+	except ${2:Exception}, ${3:e}:
+		${4:raise $3}
+	else:
+		${5:pass}
+	finally:
+		${6:pass}
+# if __name__ == '__main__':
+snippet ifmain
+	if __name__ == '__main__':
+		${1:main()}
+# __magic__
+snippet _
+	__${1:init}__${2}
+snippet sqlahead
+	from sqlalchemy import Table, create_engine, MetaData
+	import sqlalchemy.orm as orm
+	from sqlalchemy.orm import scoped_session, sessionmaker
+	import sqlalchemy.sql.expression as se
+
+	db_settings = { 'host':'localhost', 'user':'${1:user}', 'passwd':'${2:pass}', 'dbname':'${3:db}' }
+
+	engine = create_engine( 'mysql://%s:%s@%s/%s' % \
+		( db_settings['user'],db_settings['passwd'],db_settings['host'],db_settings['dbname'] ), echo=False)
+
+	meta = MetaData()
+	meta.bind = engine
+
+	Session = scoped_session(sessionmaker())
+
+	${4:table_class} = Table('${5:table}',meta,autoload=True,autoload_with=engine)
+
+	class ${6:class}(object):
+		pass
+
+	orm.mapper(${6:},${4:}, primary_key=[${5:}.c.${7:pkey}])
+	${8:foo} = Session.query(${6:})
+snippet fmm
+	{'formfld':'${1:}','formlabel':'${2:}'},
+snippet svd
+	self.v.validate('${1}',v.${2})
+snippet svde
+	self.v.validate('${1}',v.${2},extra={'r1':${3}})
+snippet svdm
+	self.v.validate('${1}',v.${2},msg='${3}')
+snippet svdme
+	self.v.validate('${1}',v.${2},msg='${3}',extra={'r1':${4}})
+snippet strdir
+	str('<br>\n'.join(dir(${1})))
+snippet pjd
+	print '\n'.join(dir(${1}))
+snippet estrdir
+	raise Exception, str(dir(${1}))
+snippet estrj
+	raise Exception, str('\n'.join(dir(${1})))
+snippet estr
+	raise Exception, str(${1})

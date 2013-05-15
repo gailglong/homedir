@@ -1,0 +1,61 @@
+# Standard shell aliases
+alias ..='cd ..'
+alias ll='ls -l'
+alias lld='ls -ld'
+alias lla='ls -la'
+alias lsa='ls -a'
+alias lwc='ls | wc -l'
+alias ...='cd -'
+alias cd2='cd ../..'
+alias cd3='cd ../../..'
+alias cd4='cd ../../../..'
+alias cd5='cd ../../../../..'
+alias cd6='cd ../../../../../..'
+alias edita='vi ~/.aliases'
+alias bin='ls ~/bin'
+alias vi='/usr/bin/vim'
+alias cls='clear'
+alias hist='history | grep $1'
+alias shred='/usr/bin/shred -vuz -n 10 $1'
+alias gvim="gvim -reverse 2>/dev/null"
+alias tvim="gvim --servername localhost --remote-silent-tab 2>/dev/null"
+alias vf="/usr/bin/vim -u ~/.vim/altcfgs/framework_vimrc"
+alias mountshare='sudo mount -t cifs //cvs.cp.local/Office\ Share -o uid=glong,user=glong/media/SHARE/'
+
+# Command shortcuts
+alias h='history |grep -i '
+
+# Debugging and tool aliases
+alias ff='firefox '
+alias notes='vi ~/Documents/notes'
+alias terror='tail /var/log/apache/error_log'
+alias taccess='tail /var/log/apache/access_log'
+alias aptsearch='apt-cache search '
+alias aptinstall='sudo apt-get install '
+alias db='mysql -u root -p'
+alias dlist='dpkg -l | grep -i '
+alias dshow='dpkg -L '
+alias arestart='sudo /etc/init.d/apache2 restart'
+alias ag='alias |grep -i $1'
+
+# Ctags 
+alias makectags="ctags -R -f ~/.tags/drupaltags --langmap=php:.php.engine.inc.module.theme \ 
+--exclude=$drupaldev/sites/all/modules/cp_wipipecentral/js/jquery.curvycorners.packed.js \ 
+--exclude=$drupaldev/sites/all/modules/cp_wipipecentral/js/ext/ext-all.js"
+
+# Navigation aliases
+alias bin='cd ~/bin'
+alias www='cd ~/www'
+alias down='cd ~/Downloads'
+alias docs='cd ~/Documents'
+alias tpy='cd ~/try/py'
+alias tphp='cd ~/try/php'
+alias dev='cd ~/dev'
+alias tmp='cd /tmp'
+
+# Kount Nav
+alias L='cd ~/projects/kount/phpbase/src/php/L'
+alias K='cd ~/projects/kount/phpbase/src/php/K'
+alias J='cd ~/projects/kount/jobs/src/php'
+alias knt='cd ~/projects/kount'
+
