@@ -21,7 +21,7 @@ export HISTFILESIZE=10000
 
 # Make sure we get our x settings.  Xdefaults is
 # a soft link to .Xresources.
-xrdb -merge ~/.Xdefaults
+declare -f xrdb && xrdb -merge ~/.Xdefaults
 
 #functions
 
